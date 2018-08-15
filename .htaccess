@@ -1,0 +1,4 @@
+# Mở chức năng Rewrite
+RewriteEngine On
+
+RewriteBase /
