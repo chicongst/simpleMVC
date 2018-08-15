@@ -11,6 +11,7 @@ class UsersController extends Controller
         return 'index';
     }
 }
+// test load view
 $u = new UsersController;
 //$t = $u->index();
 var_dump($u->view('users/index'));
