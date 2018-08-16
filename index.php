@@ -1,2 +1,3 @@
-<?php  
-require_once $_SERVER['DOCUMENT_ROOT'] . '/app/autoload.php'; 
+<?php
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/autoload.php';

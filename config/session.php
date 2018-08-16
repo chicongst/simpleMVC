@@ -18,3 +18,7 @@
             return false;
         }
     }
+
+    function redirect( $page ){
+        header('Location: ' . '/views/' . $page . '.php');
+    }

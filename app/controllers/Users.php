@@ -1,16 +1,30 @@
-<?php  require_once $_SERVER['DOCUMENT_ROOT'] . '/libraries/Controller.php'; ?>
 <?php
-
-///namespace App\Controllers;
 
 class Users extends Controller
 {
+    public function __construct()
+    {
+        if( !isLoggedIn() ){
+            redirect('users/login');
+        }
+        if( !isAdmin() ){
+            die('You do not have Administrator access');
+        }
+        $this->userModel = $this->model('User');
+    }
+
     public function index()
     {
-        $data = [
-          'title' => 'PHP MVC Framework',
-          'description' => 'Simple social network built using PHP/MVC.'
-        ];
+        $data = '';
         $this->view('users/index', $data);
+    }
+
+    public function create($arUser)
+    {
+        if ( $this->userModel->addUser($arUser) ){
+            return 'Add successfuly';
+        } else {
+            return 'Failed';
+        }
     }
 }

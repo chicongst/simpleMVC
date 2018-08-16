@@ -1,7 +1,7 @@
 <footer>
     <div class="container">
         <div class="copy text-center">
-            Copyright 2018 <a href='#'>Chicongst</a>
+            Copyright 2018 <a href='#'>Simple MVC</a>
         </div>
     </div>
 </footer>

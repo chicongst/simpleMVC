@@ -5,7 +5,7 @@ class Database{
     private $user    = DB_USER;
     private $pass    = DB_PASS;
     private $db      = DB_NAME;
-    private $charset = DB_CHARSET;
+    public $charset = DB_CHARSET;
     public $mysqli;
 
     public function __construct()
@@ -33,4 +33,3 @@ class Database{
         return $result;
     }
 }
-
