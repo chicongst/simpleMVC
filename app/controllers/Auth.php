@@ -11,7 +11,7 @@ class Auth
         $username = addslashes($request['username']);
         $password = trim($request['password']);
 
-        if ($username != '' && $password != ''){
+        if ($username != '' && $password != '') {
             $db = new Database;
             $password = md5($password);
             $checkLogin = $db->db_query("SELECT * FROM users WHERE username = '{$username}' && password = '{$password}' LIMIT 1");
