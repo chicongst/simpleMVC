@@ -4,11 +4,11 @@ class Users extends Controller
 {
     public function __construct()
     {
-        if ( !isLoggedIn()) {
+        if (!isLoggedIn()) {
             redirect('users/login');
         }
-        if ( !isAdmin()) {
-            die('You do not have Administrator access');
+        if (!isAdmin()) {
+            die('You do not have Administrator access.');
         }
         $this->userModel = $this->model('User');
     }
@@ -21,10 +21,10 @@ class Users extends Controller
 
     public function create($arUser)
     {
-        if ( $this->userModel->addUser($arUser)) {
-            return 'Added successfully';
+        if ($this->userModel->addUser($arUser)) {
+            return 'Added successfully.';
         } else {
-            return 'Failed';
+            return 'Failed.';
         }
     }
 }

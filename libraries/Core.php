@@ -9,7 +9,7 @@ class Core
     public function __construct()
     {
         $url = $this->getUrl();
-        if ( count($url) <= 2 ) {
+        if (count($url) <= 2 ) {
             $path_class = 'index';
         } else {
             $path_class = $url[2];
@@ -18,7 +18,7 @@ class Core
             );
         }
 
-        if ( file_exists(APP_ROOT.'/app/controllers/' . ucwords($path_class) . '.php')) {
+        if (file_exists(APP_ROOT.'/app/controllers/' . ucwords($path_class) . '.php')) {
             $this->currentController = ucwords( $path_class );
             unset($path_class);
         }
@@ -33,8 +33,7 @@ class Core
                 $url[2],
                 $m_url
             );
-            if(method_exists($this->currentController, $m_url))
-            {
+            if (method_exists($this->currentController, $m_url)) {
                 $this->currentMethod = $m_url;
                 unset($url[3]);
             }
@@ -45,7 +44,7 @@ class Core
 
     }
 
-    public function  getUrl()
+    public function getUrl()
     {
         $url = $_SERVER['REQUEST_URI'];
         $url = rtrim($url,'/');

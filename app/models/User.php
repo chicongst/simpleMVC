@@ -21,7 +21,7 @@ class User
         $fullname = addslashes($arUser['fullname']);
         $role = $arUser['role'];
 
-        $query = "INSERT INTO users (username,password,fullname,role) VALUES ('{$username}', '{$password}', '{$fullname}', '{$role}')";
+        $query = "INSERT INTO users (username, password, fullname, role) VALUES ('{$username}', '{$password}', '{$fullname}', '{$role}')";
 
         return $this->db->db_query($query);
     }
