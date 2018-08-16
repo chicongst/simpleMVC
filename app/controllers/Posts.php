@@ -14,17 +14,17 @@ class Posts extends Controller
 
     public function create($arPost)
     {
-        if ( $this->postModel->addPost($arPost)) {
-            return 'Added successfully';
+        if ($this->postModel->addPost($arPost)) {
+            return 'Added successfully.';
         } else {
-            return 'Failed';
+            return 'Failed.';
         }
     }
 
     public function show($id)
     {
-        if ( !is_numeric($id)){
-            die('ID must be numeric ');
+        if (!is_numeric($id)) {
+            die('ID must be numeric');
         }
         return $this->postModel->getSinglePost($id);
     }

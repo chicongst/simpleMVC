@@ -5,7 +5,7 @@ class Database{
     private $user    = DB_USER;
     private $pass    = DB_PASS;
     private $db      = DB_NAME;
-    public $charset = DB_CHARSET;
+    public $charset  = DB_CHARSET;
     public $mysqli;
 
     public function __construct()
@@ -18,7 +18,7 @@ class Database{
         $this->mysqli = new mysqli($this->host, $this->user, $this->pass, $this->db);
         $this->mysqli -> set_charset($this->charset);
 
-        if ( $this->mysqli->connect_errno ) {
+        if ($this->mysqli->connect_errno) {
             printf("Connect failed: " . $this->mysqli->connect_error);
             exit();
         }

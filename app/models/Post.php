@@ -9,13 +9,13 @@ class Post
         $this->db = new Database();
     }
 
-    public function addPost($arPost){
-
+    public function addPost($arPost)
+    {
       $title   = $arPost['title'];
       $content = $arPost['content'];
       $user_id = $_SESSION['arUser']['id'];
 
-      $query = "INSERT INTO posts (title,content,user_id) VALUES ('{$title}', '{$content}', '{$user_id}')";
+      $query = "INSERT INTO posts (title, content, user_id) VALUES ('{$title}', '{$content}', '{$user_id}')";
 
       return $this->db->db_query($query);
     }

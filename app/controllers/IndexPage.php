@@ -8,7 +8,7 @@ class IndexPage extends Controller
     {
         $post = new Post;
         $data = $post->getPosts();
-
+        
         $this->view('index', $data);
     }
 }
