@@ -8,16 +8,14 @@ class Auth
 {
     public function login($request)
     {
-        $username = addslashes ( $request['username'] );
-        $password = trim( $request['password'] );
+        $username = addslashes($request['username']);
+        $password = trim($request['password']);
 
-        if ( $username != '' && $password != '' )
-        {
+        if ( $username != '' && $password != '' ){
             $db = new Database;
             $password = md5($password);
             $checkLogin = $db->db_query("SELECT * FROM users WHERE username = '{$username}' && password = '{$password}' LIMIT 1");
-            if ( $checkLogin->num_rows > 0 )
-            {
+            if ( $checkLogin->num_rows > 0 ) {
                 $arUser = mysqli_fetch_assoc( $checkLogin );
                 return $this->createSession($arUser);
             }

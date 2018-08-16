@@ -14,8 +14,8 @@ class Posts extends Controller
 
     public function create($arPost)
     {
-        if ( $this->postModel->addPost($arPost) ){
-            return 'Add successfuly';
+        if ( $this->postModel->addPost($arPost)) {
+            return 'Added successfully';
         } else {
             return 'Failed';
         }
@@ -23,9 +23,8 @@ class Posts extends Controller
 
     public function show($id)
     {
-        if ( !is_numeric($id) )
-        {
-            die( 'ID must be numeric ' );
+        if ( !is_numeric($id)){
+            die('ID must be numeric ');
         }
         return $this->postModel->getSinglePost($id);
     }

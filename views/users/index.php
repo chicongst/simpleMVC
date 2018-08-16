@@ -46,8 +46,7 @@
                     </div>
                   </div>
                   <?php
-                      if ($_SERVER['REQUEST_METHOD'] === 'POST')
-                      {
+                      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                           require_once $_SERVER['DOCUMENT_ROOT'] . '/app/controllers/Users.php';
                           $user = new Users;
                           echo $user->create($_POST);
