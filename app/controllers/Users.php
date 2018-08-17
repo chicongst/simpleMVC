@@ -27,4 +27,9 @@ class Users extends Controller
             return 'Failed.';
         }
     }
+
+    public function all()
+    {
+        return $this->userModel->getUsers();
+    }
 }

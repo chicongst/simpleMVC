@@ -27,7 +27,7 @@ class Auth
 
     public function createSession(array $arUser)
     {
-       $_SESSION['arUser'] = $arUser;
-       header("location: /");
+        $_SESSION['arUser'] = $arUser;
+        header("location: /");
     }
 }

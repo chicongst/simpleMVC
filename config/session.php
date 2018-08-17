@@ -19,6 +19,8 @@
         }
     }
 
-    function redirect($page){
+    function redirect($page, $message = '')
+    {
+        $_SESSION['message'] = $message;
         header('Location: ' . '/views/' . $page . '.php');
     }

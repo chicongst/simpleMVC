@@ -11,7 +11,7 @@ class User
 
     public function getUsers()
     {
-        return $this->db->db_query('SELECT * FROM posts');
+        return $this->db->db_query('SELECT * FROM users');
     }
 
     public function addUser($arUser)

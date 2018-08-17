@@ -51,6 +51,7 @@
           				                  <th>#</th>
           				                  <th>Title</th>
           				                  <th>Content</th>
+                                    <th>Actions</th>
           				                </tr>
           				              </thead>
           				              <tbody>
@@ -63,6 +64,10 @@
                                       <td><?php echo $posts['id'] ?></td>
                                       <td><?php echo $posts['title'] ?></td>
                                       <td><?php echo $posts['content'] ?></td>
+                                      <td>
+                                          <a href="/views/posts/edit.php?id=<?php echo $posts['id'] ?>"><i class="glyphicon glyphicon-edit"></i></a>
+                                          <a href="/views/posts/delete.php?id=<?php echo $posts['id'] ?>"><i class="glyphicon glyphicon-trash"></i></a>
+                                      </td>
           				                </tr>
                                   <?php } ?>
           				              </tbody>
@@ -71,8 +76,12 @@
           		  			</div>
             				</div>
                   <?php
+                      if (isset($_SESSION['message'])) {
+                          echo "<p style='red'>" . $_SESSION['message'] . " </p>";
+                          unset($_SESSION['message']);
+                      }
+
                       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                          require_once $_SERVER['DOCUMENT_ROOT'] . '/app/controllers/Posts.php';
                           $user = new Posts;
                           echo $user->create($_POST);
                       }

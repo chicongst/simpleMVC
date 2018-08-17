@@ -1,7 +1,7 @@
 <?php  require_once $_SERVER['DOCUMENT_ROOT'] . '/views/include/header.php'; ?>
             <div class="col-md-10">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="content-box-large">
                             <div class="panel-heading">
                                 <div class="panel-title">Add user</div>
@@ -44,8 +44,54 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6">
+              					<div class="content-box-large">
+            		  				<div class="panel-heading">
+            							<div class="panel-title">Posts</div>
+
+            							<div class="panel-options">
+            								<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+            								<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+            							</div>
+            						</div>
+            		  				<div class="panel-body">
+            		  					<table class="table">
+            				              <thead>
+            				                <tr>
+            				                  <th>#</th>
+            				                  <th>Username</th>
+            				                  <th>Fullname</th>
+            				                </tr>
+            				              </thead>
+            				              <tbody>
+                                    <?php
+                                        $objUser  = new Users;
+                                        $getUsers = $objUser->all();
+                                        while( $users = mysqli_fetch_assoc($getUsers) ){
+                                    ?>
+            				                <tr>
+                                        <td><?php echo $users['id'] ?></td>
+                                        <td><?php echo $users['username'] ?></td>
+                                        <td><?php echo $users['fullname'] ?></td>
+                                        <!--
+                                        <td>
+                                            <a href="/views/users/edit.php?id=<?php echo $users['id'] ?>"><i class="glyphicon glyphicon-edit"></i></a>
+                                            <a href="/views/users/delete.php?id=<?php echo $users['id'] ?>"><i class="glyphicon glyphicon-trash"></i></a>
+                                        </td>
+                                        -->
+            				                </tr>
+                                    <?php } ?>
+            				              </tbody>
+            				            </table>
+            		  				</div>
+            		  			</div>
+              				</div>
                   </div>
                   <?php
+                      if (isset($_SESSION['message'])) {
+                          echo "<p style='red'>" . $_SESSION['message'] . " </p>";
+                          unset($_SESSION['message']);
+                      }
                       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                           require_once $_SERVER['DOCUMENT_ROOT'] . '/app/controllers/Users.php';
                           $user = new Users;
