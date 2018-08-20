@@ -11,25 +11,25 @@ class Post
 
     public function addPost($arPost)
     {
-      $title   = $arPost['title'];
-      $content = $arPost['content'];
-      $user_id = $_SESSION['arUser']['id'];
+        $title   = $arPost['title'];
+        $content = $arPost['content'];
+        $user_id = $_SESSION['arUser']['id'];
+ 
+        $query = "INSERT INTO posts (title, content, user_id) VALUES ('{$title}', '{$content}', '{$user_id}')";
 
-      $query = "INSERT INTO posts (title, content, user_id) VALUES ('{$title}', '{$content}', '{$user_id}')";
-
-      return $this->db->db_query($query);
+        return $this->db->db_query($query);
     }
 
     public function updatePost($arPost)
     {
-      $id      = $arPost['id'];
-      $title   = $arPost['title'];
-      $content = $arPost['content'];
-      $user_id = $_SESSION['arUser']['id'];
+        $id      = $arPost['id'];
+        $title   = $arPost['title'];
+        $content = $arPost['content'];
+        $user_id = $_SESSION['arUser']['id'];
 
-      $query = "UPDATE posts SET title = '{$title}', content = '{$content}', user_id='{$user_id}' WHERE id = {$id}";
+        $query = "UPDATE posts SET title = '{$title}', content = '{$content}', user_id='{$user_id}' WHERE id = {$id}";
 
-      return $this->db->db_query($query);
+        return $this->db->db_query($query);
     }
 
     public function getPosts()

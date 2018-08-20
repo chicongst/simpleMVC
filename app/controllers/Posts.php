@@ -4,12 +4,12 @@ class Posts extends Controller
 {
     public function __construct()
     {
-      if (!isLoggedIn()) {
-          redirect('users/login');
-      }
-      if (!isAdmin()) {
-          die('You do not have Administrator access.');
-      }
+        if (!isLoggedIn()) {
+            redirect('users/login');
+        }
+        if (!isAdmin()) {
+            die('You do not have Administrator access.');
+        }
         $this->postModel = $this->model('Post');
     }
 
